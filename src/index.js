@@ -3,6 +3,7 @@ const path = require('path');
 const multer = require('multer');
 const morgan = require('morgan');
 const uuid = require('uuid/v4');
+const {format} = require('timeago.js');
 
 //initializations
 const app = express();
@@ -27,14 +28,19 @@ app.use(multer({
 }).single('image'));
 
 //global variables
+app.use((req, res, next) =>{
+    app.locals.format = format;
+    next();
+});
 
 //Routes
 app.use(require('./routes/index'));
 
 //static files
+//le decimos al serves que esa carpeta la usaran todos
+app.use(express.static(path.join(__dirname, 'public')));
 
 //start the server
-
 app.listen(app.get('port'), () => {
     console.log(`Server on port ${app.get('port')}`);
 });
