@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jeffrey2423/tipoPinterestNodejs#readme",
   "dependencies": {
     "ejs": "^2.7.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fs-extra": "^8.1.0",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
